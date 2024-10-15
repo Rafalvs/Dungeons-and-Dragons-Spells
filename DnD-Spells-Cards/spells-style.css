@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 20;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: "Libre Baskerville", serif;
+}
+
+input {
+  width: 400px;
+  height: 50px;
+  margin: 20px 0px;
+  border-radius: 10px;
+}
+
+input:hover {
+  background-color: #303030;
+}
+
+button {
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+button:hover {
+  background-color: #303030;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.cards {
+  transition: all .3s ease-in-out;
+  height: 360px;
+  width: 300px;
+  border: 8px #000000 solid;
+  border-radius: 10px;
+  list-style: none;
+  text-shadow: 2px 2px 2px #000000, 0 0 1em #000000, 0 0 0.3em #000000;
+  font-size: 0.7rem;
+}
+
+.cards:hover {
+  transform: scale(1.1);
+}
+
+a {
+  color: #cba4e6;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.spell_name {
+  padding: 15% 0;
+  font-size: 1.5rem;
+  color: #ffc800;
+}
+
+.cards.abjuration {
+  background-color: #2a2a2a;
+}
+
+.cards.illusion {
+  background-color: #5B1865;
+}
+
+.cards.enchantment {
+  background-color: #450005;
+}
+
+.cards.divination {
+  background-color: #cb9300;
+}
+
+.cards.evocation {
+  background-color: #9e3600;
+}
+
+.cards.transmutation {
+  background-color: #16341e;
+}
+
+.cards.necromancy {
+  background-color: #201200;
+}
+
+.cards.conjuration {
+  background-color: #002962;
+}
