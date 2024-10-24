@@ -1,11 +1,28 @@
 const container = document.querySelector(".container");
 
 const spellSearch = document.querySelector("#search_input");
-const buttonSearch = document.querySelector("#button_search");
 
 const URL = "https://www.dnd5eapi.co";
 
 let spellsMap = [];
+
+const cardContent = `
+<li>
+    <h1 class="spell_name">Spell Name</h1>
+    <br>
+    <p class="spell_school">Spell School</p>
+    <br>
+    <p class="spell_lvl">Spell Level</p>
+    <br>
+    <p class="spell_components">Spell Components</p>
+    <br>
+    <p class="spell_duration">Spell Duration</p>
+    <br>
+    <p class="spell_range">Spell Range</p>
+    <br>
+    <p class="spell_classes">Spell Class</p>
+</li>
+`;
 
 const getAllSpells = async () =>
 {
@@ -26,8 +43,6 @@ const styleWhileLoading = (boolean) =>
     {
         spellSearch.setAttribute('disabled', 'disabled');
         spellSearch.style.cursor = "wait";
-        buttonSearch.setAttribute('disabled', 'disabled');
-        buttonSearch.style.cursor = "wait";
         container.textContent = "Loading..."
         container.style.cursor = "wait";
     }
@@ -35,14 +50,12 @@ const styleWhileLoading = (boolean) =>
     {
         spellSearch.removeAttribute('disabled');
         spellSearch.style.cursor = "";
-        buttonSearch.removeAttribute("disabled");
-        buttonSearch.style.cursor = "";
         container.textContent = "";
         container.style.cursor = "";
     }
 }
 
-const load = async () =>
+const loadPage = async () =>
 {
     styleWhileLoading(true);
 
@@ -60,29 +73,13 @@ const load = async () =>
     
 const renderCards = (item) => 
 {
+    container.innerHTML = '';  // Limpa os resultados anteriores
+
     item.forEach((spell) => {
     const card = document.createElement("div");
     card.classList = "cards";
 
-    const content = `
-    <li>
-        <h1 class="spell_name">Spell Name</h1>
-        <br>
-        <p class="spell_school">Spell School</p>
-        <br>
-        <p class="spell_lvl">Spell Level</p>
-        <br>
-        <p class="spell_components">Spell Components</p>
-        <br>
-        <p class="spell_duration">Spell Duration</p>
-        <br>
-        <p class="spell_range">Spell Range</p>
-        <br>
-        <p class="spell_classes">Spell Class</p>
-    </li>
-    `;
-
-    card.innerHTML = content;
+    card.innerHTML = cardContent;
 
     container.appendChild(card);
 
@@ -156,14 +153,25 @@ const spellSchoolColor = (card, spell) => {
     }
 }
 
-load();
+function searchSpells(query) {
+    const lowerCaseQuery = query.toLowerCase();
 
+    const filteredSpells = spellsMap.filter(spell =>
+        spell.name.toLowerCase().includes(lowerCaseQuery) ||
+        spell.school.name.toLowerCase().includes(lowerCaseQuery) ||
+        spell.level == Number(lowerCaseQuery) || 
+        spell.classes.some(cls => cls.name.toLowerCase().includes(lowerCaseQuery))
+    );
 
-/*
-objetivos
+    console.log(filteredSpells);
+    return filteredSpells;
+}
 
-1 - filtro: buscar as spells por qualquer atributo
+spellSearch.addEventListener('input', (e) => {
+    const query = e.target.value;
+    const results = searchSpells(query);
+    
+    renderCards(results);
+});
 
-2 - clicar na spell e abrir uma página com mais detalhes dela
-
-*/
+loadPage();
