@@ -8,7 +8,18 @@
   font-family: "Libre Baskerville", serif;
 }
 
+body {
+  background-image: url(https://www.syfy.com/sites/syfy/files/2020/08/traditional-cover-art-by-magali-villeneuve.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 100%;
+}
+
 input {
+  color: rgb(255, 255, 255);
+  background-color: #000000;
   width: 400px;
   height: 50px;
   margin: 20px 0px;
@@ -19,19 +30,8 @@ input:hover {
   background-color: #303030;
 }
 
-button {
-  padding: 10px;
-  background-color: transparent;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-bottom: 50px;
-}
-
-button:hover {
-  background-color: #303030;
-}
-
 .container {
+  opacity: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -41,13 +41,14 @@ button:hover {
 }
 
 .cards {
+  color: white;
   transition: all .3s ease-in-out;
   height: 360px;
-  width: 300px;
-  border: 8px #000000 solid;
+  width: 280px;
   border-radius: 10px;
   text-shadow: 2px 2px 2px #000000, 0 0 1em #000000, 0 0 0.3em #000000;
   font-size: 0.7rem;
+  box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.2);
 }
 
 .cards:hover {
@@ -66,9 +67,11 @@ a:link {
   padding: 40px 0;
   font-size: 1.5rem;
   color: #ffc800;
+  background-color: black;
 }
 
 .spell_school {
+  padding-top: 30px;
   font-weight: bold;
   font-size: 0.8rem;
 }
@@ -78,7 +81,7 @@ a:link {
 }
   
 .illusion {
-  background-color: #5B1865;
+  background-color: #C3ACCE;
 }
   
 .enchantment {
@@ -86,15 +89,15 @@ a:link {
 }
   
 .divination {
-  background-color: #cb9300;
+  background-color: #F7B538;
 }
   
 .evocation {
-  background-color: #9e3600;
+  background-color: #F26430;
 }
   
 .transmutation {
-  background-color: #16341e;
+  background-color: #32965D;
 }
   
 .necromancy {
@@ -102,7 +105,7 @@ a:link {
 }
   
 .conjuration {
-  background-color: #002962;
+  background-color: #52B2CF;
 }
 
 li {
