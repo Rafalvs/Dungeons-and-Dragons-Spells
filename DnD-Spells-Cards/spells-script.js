@@ -73,7 +73,7 @@ const loadPage = async () =>
     
 const renderCards = (item) => 
 {
-    container.innerHTML = '';  // Limpa os resultados anteriores
+    container.innerHTML = '';
 
     item.forEach((spell) => {
     const card = document.createElement("div");
@@ -86,6 +86,8 @@ const renderCards = (item) =>
     cardsInfo(card, spell);
 
     spellSchoolColor(card, spell);
+
+    card.addEventListener("click", (e) => {newPageSpell(spell)});
   });
 }
 
@@ -115,13 +117,14 @@ const cardsInfo = (card, spell) =>
         card.querySelector(".spell_duration").textContent = `Duration: ${spell.duration}`;
     }
 
-    card.querySelector(".spell_range").textContent = `Range ${spell.range}`;
+    card.querySelector(".spell_range").textContent = `Range: ${spell.range}`;
     
     const classes = spell.classes.map((cls) => cls.name).join(", ");
     card.querySelector(".spell_classes").textContent = `Classes: ${classes}`;
 }
 
-const spellSchoolColor = (card, spell) => {
+const spellSchoolColor = (card, spell) =>
+{
     switch(spell.school.name)
     {
         case "Abjuration":
@@ -154,6 +157,7 @@ const spellSchoolColor = (card, spell) => {
 }
 
 function searchSpells(query) {
+
     const lowerCaseQuery = query.toLowerCase();
 
     const filteredSpells = spellsMap.filter(spell =>
@@ -174,4 +178,30 @@ spellSearch.addEventListener('input', (e) => {
     renderCards(results);
 });
 
-loadPage();
+function newPageSpell(spell)
+{
+    var opened = window.open("");
+    opened.document.write(`
+        <html>
+            <head>
+            <link rel="stylesheet" href="./spells-style.css">
+                <title>${spell.name}</title>
+            </head>
+            <body class="${spell.school.name}">
+                <li class="innertext">
+                    <h1 class="spell_name">${spell.name}</h1>
+                    <h2 class="spell_school">${spell.school.name}</h2>
+                    <p class="spell_lvl">${spell.level > 0 ? "Level: " + spell.level : "Cantrip"}</p>
+                    <p class="spell_classes">${spell.classes.map((cls) => cls.name).join(", ")}</p>
+                    <p class="casting_time">Casting Time: ${spell.casting_time}</p>
+                    <p class="spell_range">Range: ${spell.range}</p>
+                    <p class="spell_components">${spell.components} ${spell.material ? `(${spell.material})` : ""}</p>
+                    <p class="spell_duration"><b>Duration:<br></b>${spell.duration}</p>
+                    <p class="description"><b>Description:<br></b> ${spell.desc}</p>
+                    <p class="higherLevel">${spell.higher_level[0] ? `<b>At Higher Levels:<br></b> ${spell.higher_level}` : ""}</p>
+                </li>
+            </body>
+        </html>`);
+}
+
+window.onload = loadPage;

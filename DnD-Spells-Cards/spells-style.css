@@ -2,7 +2,7 @@
 
 * {
   margin: 0;
-  padding: 20;
+  padding: 10;
   box-sizing: border-box;
   text-align: center;
   font-family: "Libre Baskerville", serif;
@@ -46,7 +46,6 @@ button:hover {
   width: 300px;
   border: 8px #000000 solid;
   border-radius: 10px;
-  list-style: none;
   text-shadow: 2px 2px 2px #000000, 0 0 1em #000000, 0 0 0.3em #000000;
   font-size: 0.7rem;
 }
@@ -64,39 +63,54 @@ a:link {
 }
 
 .spell_name {
-  padding: 15% 0;
+  padding: 40px 0;
   font-size: 1.5rem;
   color: #ffc800;
 }
 
-.cards.abjuration {
+.spell_school {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.abjuration {
   background-color: #2a2a2a;
 }
   
-.cards.illusion {
+.illusion {
   background-color: #5B1865;
 }
   
-.cards.enchantment {
+.enchantment {
   background-color: #450005;
 }
   
-.cards.divination {
+.divination {
   background-color: #cb9300;
 }
   
-.cards.evocation {
+.evocation {
   background-color: #9e3600;
 }
   
-.cards.transmutation {
+.transmutation {
   background-color: #16341e;
 }
   
-.cards.necromancy {
+.necromancy {
   background-color: #201200;
 }
   
-.cards.conjuration {
+.conjuration {
   background-color: #002962;
+}
+
+li {
+  list-style: none;
+}
+
+.innertext {
+  color: white;
+  text-shadow: 2px 2px 2px #000000, 0 0 1em #000000, 0 0 0.3em #000000;
+  word-spacing: 3px;
 }
