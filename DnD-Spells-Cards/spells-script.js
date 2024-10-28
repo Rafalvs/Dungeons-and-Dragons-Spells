@@ -187,9 +187,9 @@ function newPageSpell(spell)
             <link rel="stylesheet" href="./spells-style.css">
                 <title>${spell.name}</title>
             </head>
-            <body class="${spell.school.name}">
+            <body>
                 <li class="innertext">
-                    <h1 class="spell_name">${spell.name}</h1>
+                    <h1 class="${spell.school.name}">${spell.name}</h1>
                     <h2 class="spell_school">${spell.school.name}</h2>
                     <p class="spell_lvl">${spell.level > 0 ? "Level: " + spell.level : "Cantrip"}</p>
                     <p class="spell_classes">${spell.classes.map((cls) => cls.name).join(", ")}</p>
@@ -197,7 +197,7 @@ function newPageSpell(spell)
                     <p class="spell_range">Range: ${spell.range}</p>
                     <p class="spell_components">${spell.components} ${spell.material ? `(${spell.material})` : ""}</p>
                     <p class="spell_duration"><b>Duration:<br></b>${spell.duration}</p>
-                    <p class="description"><b>Description:<br></b> ${spell.desc}</p>
+                    <p class="description"><b>Description:<br></b> ${spell.desc.map((desc) => desc).join(`<br>`)}</p>
                     <p class="higherLevel">${spell.higher_level[0] ? `<b>At Higher Levels:<br></b> ${spell.higher_level}` : ""}</p>
                 </li>
             </body>

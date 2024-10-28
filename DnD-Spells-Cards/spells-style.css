@@ -31,6 +31,7 @@ input:hover {
 }
 
 .container {
+  list-style: none;
   opacity: 80%;
   display: flex;
   flex-wrap: wrap;
@@ -108,12 +109,22 @@ a:link {
   background-color: #52B2CF;
 }
 
-li {
-  list-style: none;
-}
-
 .innertext {
+  height: auto;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: white;
   text-shadow: 2px 2px 2px #000000, 0 0 1em #000000, 0 0 0.3em #000000;
   word-spacing: 3px;
+  border: 6px solid black;
+}
+
+.description {
+  text-align: left;
+}
+
+.higherLevel {
+  text-align: left;
 }
