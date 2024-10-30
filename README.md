@@ -18,5 +18,5 @@
     <img src="https://imgur.com/eNLtg5o.jpg" alt="tela" width="750px" height="400px">
 </div>
 
-<p><i> Made with pure Javascript </i></p>
+<p><i> Made with vanilla Javascript </i></p>
 <p> Background image: Tasha's Cauldron of Everything (D&d Rules Expansion) (Dungeons & Dragons) - Cover Art </p>
